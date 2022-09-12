@@ -71,11 +71,14 @@ function createTimeBlock(time, content="") {
       }, 1000);
   
     }
-    
-    
+    const currentDay = $('#currentDay');
+
+    $('#currentDay').html(startTimer);
     // when user lands on this app 
     // should see the current time -- ticking clock
-    startTimer();
+
+
+
   
   
   
