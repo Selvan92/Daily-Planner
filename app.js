@@ -67,13 +67,13 @@ function createTimeBlock(time, content="") {
   
       setInterval(function(){
         currentTime.text(moment().format("YYYY-MM-DD HH:mm:ss"));
-  
+        
+
       }, 1000);
   
     }
-    const currentDay = $('#currentDay');
 
-    $('#currentDay').html(startTimer);
+    
     // when user lands on this app 
     // should see the current time -- ticking clock
 
@@ -89,15 +89,11 @@ function createTimeBlock(time, content="") {
       
       container.append(timeBlock);
       
-    }
-  
-  
-  
-  
+    }  
   
   })
   
-  
+  document.getElementById('currentDay').innerHTML=startTimer();
   
   
   
