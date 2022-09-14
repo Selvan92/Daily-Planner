@@ -1,16 +1,4 @@
 function createTimeBlock(time, content="") {
-
-
-
-    // <div class="row align-items-center time-row">
-    //   <div class="col-2 d-flex justify-content-center time-col-time">9</div>
-    //   <div class="col-8 time-col-textarea">
-    //     <textarea name="" id="" cols="30" rows="2"></textarea>
-    //   </div>
-    //   <div class="col-2 time-col-button">
-    //     <button type="submit" class="btn btn-primary">Save</button>
-    //   </div>
-    // </div>
   
     const timeRow = $("<div class='row align-items-center time-row'>");
     
@@ -20,17 +8,6 @@ function createTimeBlock(time, content="") {
     const colTextArea = $("<div class='col-8 time-col-textarea'>")
     const textArea = $("<textarea cols='30' rows='2'>").val(content)
   
-    // when user lands on this app 
-    // should see 9am - 5pm coloured blocks
-    // past, present and future colours.
-    // with all the previous notes
-  
-    // current time is 10:45
-  
-    // i expect 10am block to be present
-  
-    // if currentTime > time but less than time + 1 -- present
-    // const currentTime = moment();
     const timeMoment = moment(time, "H");
     const currentTime = moment();
     const isPresent = (currentTime > timeMoment) && (currentTime < timeMoment.clone().add(1, 'hours'));
@@ -73,11 +50,11 @@ function createTimeBlock(time, content="") {
   
     }
 
-    
+   
     // when user lands on this app 
     // should see the current time -- ticking clock
 
-
+document.getElementById('currentDay').innerHTML=startTimer();
 
   
   
@@ -93,7 +70,7 @@ function createTimeBlock(time, content="") {
   
   })
   
-  document.getElementById('currentDay').innerHTML=startTimer();
+  
   
   
   
