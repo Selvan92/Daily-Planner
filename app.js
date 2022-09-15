@@ -37,7 +37,7 @@ function createTimeBlock(time, content="") {
   }
   
   $(function(){
-    const currentTime = $("#current-time");
+    const currentTime = $("#currentDay");
     const container = $(".container")
   
     function startTimer(){
@@ -49,15 +49,11 @@ function createTimeBlock(time, content="") {
       }, 1000);
   
     }
-
    
     // when user lands on this app 
     // should see the current time -- ticking clock
 
-document.getElementById('currentDay').innerHTML=startTimer();
-
-  
-  
+startTimer();  
   
     for (let index = 9; index < 18; index++) {
   
@@ -69,9 +65,16 @@ document.getElementById('currentDay').innerHTML=startTimer();
     }  
   
   })
+    
   
-  
-  
+ // return timeRow.append(colTime, colTextArea, colButton);
+
+ $('.btn').on("click", function() {
+
+  let text=$(this).siblings(colTextArea).val() //return the text area
+  localStorage.setItem('text',JSON.stringify(text));
+
+ })
   
   
   
