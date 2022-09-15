@@ -6,7 +6,7 @@ function createTimeBlock(time, content="") {
   
     
     const colTextArea = $("<div class='col-8 time-col-textarea'>")
-    const textArea = $("<textarea cols='30' rows='2'>").val(content)
+    const textArea = $("<textarea cols='30' rows='2'id="+time+">").val(content)
   
     const timeMoment = moment(time, "H");
     const currentTime = moment();
@@ -67,24 +67,27 @@ startTimer();
   })
     
   
- // return timeRow.append(colTime, colTextArea, colButton);
+ //local.storage of text input
 
- $('.btn').on("click", function() {
+ $('.container').on("click",".time-col-button", function() {
 
-  let text=$(this).siblings(colTextArea).val() //return the text area
-  localStorage.setItem('text',JSON.stringify(text));
+  let text=$(this).siblings(".time-col-textarea").children('textarea').val() 
+  let key=$(this).siblings(".time-col-time").text()
+  console.log(text);//return the text area
+  localStorage.setItem(key,JSON.stringify(text));
 
  })
+ setTimeout(function(){
+  var keys=['9:00','10:00','11:00']
+  var ids=[9,10,11]
+  for (let index = 0; index < keys.length; index++) {
+   let text = localStorage.getItem(keys[index]);
+   $('#' +ids[index]).val(text)
+  }
+ },1000)
+ 
   
   
   
   
   
-  // when user click on submit button,
-  // should get the note written on the target timeblock
-  // save the note to the storage (based on the time of the row)
-  
-  
-  // scenarios
-  // can the user edit past timeblocks?
-  // can the user edit current timeblock?
