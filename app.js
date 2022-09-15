@@ -69,8 +69,8 @@ startTimer();
   
  //local.storage of text input
 
- $('.container').on("click",".time-col-button", function() {
-
+ $('.container').on("click",".time-col-button", function(event) {
+event.preventDefault();
   let text=$(this).siblings(".time-col-textarea").children('textarea').val() 
   let key=$(this).siblings(".time-col-time").text()
   console.log(text);//return the text area
@@ -78,8 +78,8 @@ startTimer();
 
  })
  setTimeout(function(){
-  var keys=['9:00','10:00','11:00']
-  var ids=[9,10,11]
+  var keys=['9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00']
+  var ids=[9,10,11,12,13,14,15,16,17]
   for (let index = 0; index < keys.length; index++) {
    let text = localStorage.getItem(keys[index]);
    $('#' +ids[index]).val(text)
